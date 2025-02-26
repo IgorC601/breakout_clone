@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7lej2x5e5vg1"]
+
+[ext_resource type="Texture2D" uid="uid://c2es8kq0ir587" path="res://assets/art/paddles_and_balls.png" id="1_25m1q"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_ha5ok"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f58iy"]
+size = Vector2(64, 9)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ha5ok")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.03125, 1.1)
+texture = ExtResource("1_25m1q")
+region_enabled = true
+region_rect = Rect2(64, 39, 32, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_f58iy")
