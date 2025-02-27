@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cn0a21kt7tj4u"
+path="res://.godot/imported/Chippy Music 12.wav-23fea4bfd92a4ba8837a787799b442bd.sample"
+
+[deps]
+
+source_file="res://assets/music/Chippy Music 12.wav"
+dest_files=["res://.godot/imported/Chippy Music 12.wav-23fea4bfd92a4ba8837a787799b442bd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -4,6 +4,8 @@ var score : int = 0
 
 @onready var ball: CharacterBody2D = %Ball
 
+signal send_score(score: int)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ball.score_update.connect(update_label)

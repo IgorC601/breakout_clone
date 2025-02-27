@@ -5,13 +5,18 @@ const ACELERATION = 20.0
 var init_speed = 205.0
 var SPEED = 205.0
 var direction := Vector2.DOWN
+var ceiling := false
 
 # Node's Callable
 @onready var player: CharacterBody2D = $"../Player"
+@onready var hit_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 # Signals
 signal score_update(score : int)
+signal hit_ceiling(check: bool)
 
+func _ready() -> void:
+	pass
 
 func _physics_process(delta: float) -> void:
 	velocity = direction * SPEED
@@ -19,6 +24,7 @@ func _physics_process(delta: float) -> void:
 	
 	# If it collides it bounces
 	if collision:
+		hit_sound.play()
 		if collision.get_collider() == player:
 			direction = (global_position - player.global_position).normalized()
 		elif str(collision.get_collider()).contains("Brick"):
@@ -31,6 +37,10 @@ func _physics_process(delta: float) -> void:
 			SPEED += ACELERATION
 		else:
 			direction = direction.bounce(collision.get_normal())
+		
+		if collision.get_collider().name == "Wall" and !ceiling:
+			ceiling = true
+			hit_ceiling.emit(ceiling)
 
 
 func assign_points(brick: Node2D) -> int:

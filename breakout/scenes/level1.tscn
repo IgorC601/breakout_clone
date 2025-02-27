@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://conw0ymw0nrj1"]
+[gd_scene load_steps=15 format=4 uid="uid://conw0ymw0nrj1"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_8me3c"]
 [ext_resource type="Texture2D" uid="uid://cogo10hfu7rdp" path="res://assets/art/Backround_Tiles.png" id="2_hypiq"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://b7lej2x5e5vg1" path="res://scenes/player.tscn" id="4_1gslu"]
 [ext_resource type="PackedScene" uid="uid://dh4pii3wkbr6o" path="res://scenes/ball.tscn" id="5_bw1yo"]
 [ext_resource type="FontFile" uid="uid://drkdxxumr36ig" path="res://assets/fonts/Teko-Bold.ttf" id="7_5p86e"]
+[ext_resource type="Script" path="res://scripts/high_score_label.gd" id="8_7mbx2"]
 [ext_resource type="Script" path="res://scripts/score_label.gd" id="8_pvqpi"]
 [ext_resource type="Texture2D" uid="uid://etgdbigppnyx" path="res://assets/art/Hearts.png" id="9_mwyg3"]
+[ext_resource type="AudioStream" uid="uid://cn0a21kt7tj4u" path="res://assets/music/Chippy Music 12.wav" id="10_oedtd"]
 [ext_resource type="PackedScene" uid="uid://okmulyotfb15" path="res://scenes/killzone.tscn" id="10_w1xcd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0572h"]
@@ -171,6 +173,21 @@ text = "Score: 0000"
 label_settings = SubResource("LabelSettings_wlxlr")
 script = ExtResource("8_pvqpi")
 
+[node name="HighScoreLabel" type="Label" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.625
+anchor_top = 0.675
+anchor_right = 1.625
+anchor_bottom = 0.675
+offset_left = 199.0
+offset_top = -17.0
+offset_right = 380.0
+offset_bottom = 21.0
+text = "HIGH SCORE: 0000"
+label_settings = SubResource("LabelSettings_wlxlr")
+script = ExtResource("8_7mbx2")
+
 [node name="Healthbar" type="CanvasLayer" parent="UserInterface"]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UserInterface/Healthbar"]
@@ -211,3 +228,8 @@ region_rect = Rect2(114, 2, 13, 12)
 
 [node name="Killzone" parent="." instance=ExtResource("10_w1xcd")]
 position = Vector2(337, 507)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_oedtd")
+autoplay = true
+bus = &"Music"

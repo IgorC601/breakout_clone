@@ -1,0 +1,123 @@
+[gd_scene load_steps=6 format=3 uid="uid://bccbkgw34wttr"]
+
+[ext_resource type="Script" path="res://scripts/game_over_screen.gd" id="1_fechn"]
+[ext_resource type="FontFile" uid="uid://drkdxxumr36ig" path="res://assets/fonts/Teko-Bold.ttf" id="2_crwfp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3lt10"]
+font = ExtResource("2_crwfp")
+font_size = 50
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 0.627451)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ouy06"]
+font = ExtResource("2_crwfp")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_yc53m"]
+font = ExtResource("2_crwfp")
+font_size = 25
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fechn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -353.0
+offset_top = -239.0
+offset_right = 353.0
+offset_bottom = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.443137, 0.121569, 0.137255, 0.729412)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -145.0
+offset_right = 212.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -129.0
+offset_right = 108.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_3lt10")
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = 67.0
+offset_right = 90.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Replay"
+
+[node name="HighScoreLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -43.0
+offset_right = 100.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Highest Score: 0000"
+label_settings = SubResource("LabelSettings_ouy06")
+
+[node name="CurrentScoreLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = 5.0
+offset_right = 58.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: 0000"
+label_settings = SubResource("LabelSettings_yc53m")
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

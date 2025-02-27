@@ -22,5 +22,5 @@ func setup_level() -> void:
 			
 			# Change sprite based on row
 			var sprite = new_brick.get_node("Sprite2D")
-			sprite.region_rect = Rect2(112, 16*r, 32, 16)
+			sprite.region_rect = Rect2(112, 16*(5 - r), 32, 16)
 		

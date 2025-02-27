@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dh4pii3wkbr6o"]
+[gd_scene load_steps=5 format=3 uid="uid://dh4pii3wkbr6o"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_2qbx8"]
 [ext_resource type="Texture2D" uid="uid://c2es8kq0ir587" path="res://assets/art/paddles_and_balls.png" id="1_48ifg"]
+[ext_resource type="AudioStream" uid="uid://b1ik8n2wwl15u" path="res://assets/sfx/Hit 8 - Sound effects Pack 2.wav" id="3_liavu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2fyg"]
 radius = 7.0
@@ -16,3 +17,7 @@ region_rect = Rect2(176, 34, 14, 14)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_h2fyg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_liavu")
+bus = &"SFX"
